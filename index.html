@@ -2,46 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
   <title>Queermoji</title>
+  <style>
+
+  </style>
 </head>
 
 <body>
-  <div id="app">
-    <h1>Queermoji</h1>
+  <h1>Queermoji</h1>
+  <h2>Discord/Slack emoji generator</h2>
+  <div class="container">
+    <div class="row">
+      <div class="controls">
+        <label for="shape">Shape</label>
+        <select id="shapeSelector">
+          <option value="heart">Heart</option>
+          <option value="star">Star</option>
+          <option value="flag">Flag</option>
+          <option value="square">Square</option>
+          <option value="circle">Circle</option>
+          <option value="egg">Egg</option>
+        </select>
 
-    <label>Shape:
-      <select id="shapeSelector">
-        <option value="heart">Heart</option>
-        <option value="star">Star</option>
-        <option value="flag">Flag</option>
-        <option value="square">Square</option>
-        <option value="circle">Circle</option>
-        <option value="egg">Egg</option>
-      </select>
-    </label>
+        <label>Stripes</label>
+        <div id="colorPickers">
+        </div>
+        <button id="addStripe">Add Stripe</button>
+      </div>
 
-    <div id="colorPickers">
-      <label>Color 1: <input type="color" value="#ff0000"></label>
-      <!-- Add more dynamically -->
+      <div class="preview">
+        <div id="previewContainer">
+          <canvas id="previewCanvas" width="128" height="128"></canvas>
+        </div>
+        <button id="downloadBtn">Download</button>
+      </div>
     </div>
 
-    <button id="addStripe">Add Stripe</button>
-    <button id="removeStripe" disabled>Remove Stripe</button>
-
-    <div id="presets">
-      <h3>Presets</h3>
-      <button data-flag="pride">Pride</button>
-      <button data-flag="bi">Bi</button>
-      <button data-flag="trans">Trans</button>
-      <button data-flag="nonbinary">Non-binary</button>
+    <div class="row">
+      <div id="presets">
+        <h3>Preset styles</h3>
+        <button data-flag="pride">Pride</button>
+        <button data-flag="bi">Bi</button>
+        <button data-flag="trans">Trans</button>
+        <button data-flag="nonbinary">Non-binary</button>
+      </div>
     </div>
-
-    <canvas id="previewCanvas" width="128" height="128"></canvas>
-
-    <button id="downloadBtn">Download PNG</button>
   </div>
 
   <script src="js/script.js"></script>

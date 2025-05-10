@@ -4,7 +4,6 @@ const canvas = document.getElementById('previewCanvas');
 const ctx = canvas.getContext('2d');
 const downloadBtn = document.getElementById('downloadBtn');
 const addStripe = document.getElementById('addStripe');
-const removeStripe = document.getElementById('removeStripe');
 
 let preset = null;
 
@@ -95,7 +94,7 @@ function updateCanvas() {
   // ctx.imageSmoothingEnabled = true;
 
   const shape = shapeSelector.value;
-  const colors = [...colorPickers.querySelectorAll('input')].map(el => el.value);
+  const colors = [...colorPickers.querySelectorAll('input[type=text]')].map(el => el.value);
 
   if (shape === 'heart') {
     fillShapeWithStripes(ctx, heartPath, colors, 9, 120);
@@ -117,21 +116,7 @@ shapeSelector.addEventListener('change', updateCanvas);
 colorPickers.addEventListener('input', updateCanvas);
 
 addStripe.addEventListener('click', () => {
-  const label = document.createElement('label');
-  label.innerHTML = `Color ${colorPickers.children.length + 1}: <input type="color" value="#ffffff">`;
-  colorPickers.appendChild(label);
-  removeStripe.disabled = false;
-  preset = null;
-  updateCanvas();
-});
-
-removeStripe.addEventListener('click', () => {
-  if (colorPickers.children.length > 1) {
-    colorPickers.removeChild(colorPickers.lastChild);
-  }
-  if (colorPickers.children.length === 1) {
-    removeStripe.disabled = true;
-  }
+  addColorInput();
   preset = null;
   updateCanvas();
 });
@@ -158,12 +143,9 @@ document.querySelectorAll('#presets button').forEach(btn => {
     preset = flag;
 
     colorPickers.innerHTML = ''; // Clear existing
-    colors.forEach((color, i) => {
-      const label = document.createElement('label');
-      label.innerHTML = `Color ${i + 1}: <input type="color" value="${color}">`;
-      colorPickers.appendChild(label);
+    colors.forEach((color) => {
+      addColorInput(color);
     });
-    removeStripe.disabled = colors.length <= 1;
 
     updateCanvas();
   });
@@ -190,5 +172,52 @@ function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
 
   ctx.restore();
 }
+
+function addColorInput(color = '#ff0000') {
+  const colorList = document.getElementById('colorPickers');
+
+  const row = document.createElement('div');
+  row.className = 'color-row';
+
+  const colorInput = document.createElement('input');
+  colorInput.type = 'color';
+  colorInput.value = color;
+
+  const textInput = document.createElement('input');
+  textInput.type = 'text';
+  textInput.value = color;
+  textInput.maxLength = 7;
+
+  // Keep them in sync
+  colorInput.addEventListener('input', () => {
+    textInput.value = colorInput.value;
+    render(); // update the canvas if needed
+  });
+
+  textInput.addEventListener('input', () => {
+    if (/^#[0-9a-fA-F]{6}$/.test(textInput.value)) {
+      colorInput.value = textInput.value;
+      render();
+    }
+  });
+
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = '✕';
+  removeBtn.style.border = 'none';
+  removeBtn.style.cursor = 'pointer';
+  removeBtn.addEventListener('click', () => {
+    row.remove();
+    updateCanvas();
+  });
+
+  row.appendChild(colorInput);
+  row.appendChild(textInput);
+  row.appendChild(removeBtn);
+  colorList.appendChild(row);
+}
+
+addColorInput("#ff69b4");
+addColorInput("#9b4de0");
+addColorInput("#1e90ff");
 
 updateCanvas();

@@ -1,25 +1,129 @@
-#app {
+body {
   font-family: sans-serif;
-  padding: 1rem;
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
+  background: #f0f4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
+h1, h2 {
+  color: #1d3557;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 220px;
+}
+
+.controls label {
+  font-weight: bold;
+  color: #333;
+}
+
+.controls input[type="color"],
+.controls input[type="text"],
+.controls select {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#colorPickers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.color-row input[type="color"] {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.color-row input[type="text"] {
+  width: 80px;
+  text-transform: uppercase;
+  font-family: monospace;
+  color: #666;
+}
+
+#previewContainer {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  margin: 1rem;
 }
 
 canvas {
-  margin-top: 1rem;
-  border: 1px solid #ccc;
-  background-color: white;
-  background-image:
-    linear-gradient(45deg, #e8e8e8 25%, transparent 25%),
-    linear-gradient(-45deg, #e8e8e8 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #e8e8e8 75%),
-    linear-gradient(-45deg, transparent 75%, #e8e8e8 75%);
-  background-size: 16px 16px;
-  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  position: relative;
+  width: 128px;
+  height: 128px;
+  background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px 16px;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #4361ee;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+button#downloadBtn {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#presets {
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+#presets button {
+  background-color: #FFF;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+#presets button:hover {
+  background-color: #1d3557;
+  color: #FFF;
 }
