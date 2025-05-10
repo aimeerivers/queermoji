@@ -6,6 +6,8 @@ const downloadBtn = document.getElementById('downloadBtn');
 const addStripe = document.getElementById('addStripe');
 const removeStripe = document.getElementById('removeStripe');
 
+let preset = null;
+
 // Utility: make vertical gradient
 function makeVerticalGradient(ctx, colors) {
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
@@ -25,6 +27,16 @@ function heartPath(ctx) {
   ctx.closePath();
 }
 
+function flagPath(ctx) {
+  ctx.beginPath();
+  ctx.moveTo(0, 18);
+  ctx.lineTo(128, 18);
+  ctx.lineTo(128, 110);
+  ctx.lineTo(0, 110);
+  ctx.lineTo(0, 18);
+  ctx.closePath();
+}
+
 function squarePath(ctx) {
   ctx.beginPath();
   ctx.moveTo(0, 0);
@@ -32,16 +44,6 @@ function squarePath(ctx) {
   ctx.lineTo(128, 128);
   ctx.lineTo(0, 128);
   ctx.lineTo(0, 0);
-  ctx.closePath();
-}
-
-function rectanglePath(ctx) {
-  ctx.beginPath();
-  ctx.moveTo(0, 18);
-  ctx.lineTo(128, 18);
-  ctx.lineTo(128, 110);
-  ctx.lineTo(0, 110);
-  ctx.lineTo(0, 18);
   ctx.closePath();
 }
 
@@ -99,10 +101,10 @@ function updateCanvas() {
     fillShapeWithStripes(ctx, heartPath, colors, 9, 120);
   } else if (shape === 'star') {
     fillShapeWithStripes(ctx, starPath, colors, 2, 126);
+  } else if (shape === 'flag') {
+    fillShapeWithStripes(ctx, flagPath, colors, 18, 110);
   } else if (shape === 'square') {
     fillShapeWithStripes(ctx, squarePath, colors, 0, 128);
-  } else if (shape === 'rectangle') {
-    fillShapeWithStripes(ctx, rectanglePath, colors, 18, 110);
   } else if (shape === 'circle') {
     fillShapeWithStripes(ctx, circlePath, colors, 0, 128);
   } else if (shape === 'egg') {
@@ -113,13 +115,16 @@ function updateCanvas() {
 // UI setup
 shapeSelector.addEventListener('change', updateCanvas);
 colorPickers.addEventListener('input', updateCanvas);
+
 addStripe.addEventListener('click', () => {
   const label = document.createElement('label');
   label.innerHTML = `Color ${colorPickers.children.length + 1}: <input type="color" value="#ffffff">`;
   colorPickers.appendChild(label);
   removeStripe.disabled = false;
+  preset = null;
   updateCanvas();
 });
+
 removeStripe.addEventListener('click', () => {
   if (colorPickers.children.length > 1) {
     colorPickers.removeChild(colorPickers.lastChild);
@@ -127,12 +132,14 @@ removeStripe.addEventListener('click', () => {
   if (colorPickers.children.length === 1) {
     removeStripe.disabled = true;
   }
+  preset = null;
   updateCanvas();
 });
 
 downloadBtn.addEventListener('click', () => {
   const link = document.createElement('a');
-  link.download = `${shapeSelector.value}.png`;
+  const filename = `${preset ? preset + "_" : ""}${shapeSelector.value}.png`;
+  link.download = filename;
   link.href = canvas.toDataURL();
   link.click();
 });
@@ -148,6 +155,7 @@ document.querySelectorAll('#presets button').forEach(btn => {
   btn.addEventListener('click', () => {
     const flag = btn.dataset.flag;
     const colors = presets[flag];
+    preset = flag;
 
     colorPickers.innerHTML = ''; // Clear existing
     colors.forEach((color, i) => {
@@ -155,6 +163,7 @@ document.querySelectorAll('#presets button').forEach(btn => {
       label.innerHTML = `Color ${i + 1}: <input type="color" value="${color}">`;
       colorPickers.appendChild(label);
     });
+    removeStripe.disabled = colors.length <= 1;
 
     updateCanvas();
   });
