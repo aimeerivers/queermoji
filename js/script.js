@@ -131,8 +131,15 @@ downloadBtn.addEventListener('click', () => {
 
 const presets = {
   pride: ['#E50D00', '#FC8E03', '#FFEE00', '#22821B', '#024AFF', '#78118A'],
+  queer: ['#000000', '#9ad9ea', '#0da3e7', '#b5e51e', '#ffffff', '#ffca0e', '#fb6567', '#fbaec9', '#000000'],
+  gay: ['#218e71', '#99e8c3', '#ffffff', '#7baee3', '#3a1379'],
+  lesbian: ['#d62901', '#fc9b55', '#ffffff', '#d462a6', '#a50d62'],
   bi: ['#D61370', '#D61370', '#9B4F96', '#0138A8', '#0138A8'],
+  pan: ['#f91c8e', '#ffd902', '#1bb3ff'],
+  ace: ['#000000', '#a4a4a4', '#FFFFFF', '#811081'],
+  aroace: ['#e38e00', '#edce00', '#FFFFFF', '#62afdd', '#1a3555'],
   trans: ['#5ACFFA', '#F5ABBA', '#FFFFFF', '#F5ABBA', '#5ACFFA'],
+  genderqueer: ['#b77fdd', '#FFFFFF', '#48821d'],
   nonbinary: ['#FFF530', '#FFFFFF', '#9D59D1', '#282828']
 };
 
