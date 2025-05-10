@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Queermoji</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Queermoji</h1>
+
+    <label>Shape:
+      <select id="shapeSelector">
+        <option value="heart">❤️ Heart</option>
+        <option value="star">⭐ Star</option>
+      </select>
+    </label>
+
+    <div id="colorPickers">
+      <label>Color 1: <input type="color" value="#ff0000"></label>
+      <!-- Add more dynamically -->
+    </div>
+
+    <button id="addStripe">Add Stripe</button>
+
+    <div id="presets">
+      <h3>Presets</h3>
+      <button data-flag="rainbow">🏳️‍🌈 Rainbow</button>
+      <button data-flag="trans">🏳️‍⚧️ Trans</button>
+      <button data-flag="nonbinary">💛🤍💜🖤 Nonbinary</button>
+    </div>
+
+    <canvas id="previewCanvas" width="128" height="128"></canvas>
+
+    <button id="downloadBtn">Download PNG</button>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
