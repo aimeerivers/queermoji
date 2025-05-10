@@ -14,8 +14,12 @@
 
     <label>Shape:
       <select id="shapeSelector">
-        <option value="heart">❤️ Heart</option>
-        <option value="star">⭐ Star</option>
+        <option value="heart">Heart</option>
+        <option value="star">Star</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="square">Square</option>
+        <option value="circle">Circle</option>
+        <option value="egg">Egg</option>
       </select>
     </label>
 
@@ -25,12 +29,14 @@
     </div>
 
     <button id="addStripe">Add Stripe</button>
+    <button id="removeStripe" disabled>Remove Stripe</button>
 
     <div id="presets">
       <h3>Presets</h3>
-      <button data-flag="rainbow">🏳️‍🌈 Rainbow</button>
-      <button data-flag="trans">🏳️‍⚧️ Trans</button>
-      <button data-flag="nonbinary">💛🤍💜🖤 Nonbinary</button>
+      <button data-flag="pride">Pride</button>
+      <button data-flag="bi">Bi pride</button>
+      <button data-flag="trans">Trans pride</button>
+      <button data-flag="nonbinary">Non-binary</button>
     </div>
 
     <canvas id="previewCanvas" width="128" height="128"></canvas>
