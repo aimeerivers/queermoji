@@ -1,9 +1,9 @@
-const shapeSelector = document.getElementById('shapeSelector');
-const colorPickers = document.getElementById('colorPickers');
-const canvas = document.getElementById('previewCanvas');
-const ctx = canvas.getContext('2d');
-const downloadBtn = document.getElementById('downloadBtn');
-const addStripe = document.getElementById('addStripe');
+const shapeSelector = document.getElementById("shapeSelector");
+const colorPickers = document.getElementById("colorPickers");
+const canvas = document.getElementById("previewCanvas");
+const ctx = canvas.getContext("2d");
+const downloadBtn = document.getElementById("downloadBtn");
+const addStripe = document.getElementById("addStripe");
 
 let preset = null;
 
@@ -68,7 +68,7 @@ function starPath(ctx) {
   const spikes = 5;
   const outerRadius = 68;
   const innerRadius = 32;
-  let rot = Math.PI / 2 * 3;
+  let rot = (Math.PI / 2) * 3;
   let x = cx;
   let y = cy;
   const step = Math.PI / spikes;
@@ -94,35 +94,37 @@ function updateCanvas() {
   // ctx.imageSmoothingEnabled = true;
 
   const shape = shapeSelector.value;
-  const colors = [...colorPickers.querySelectorAll('input[type=text]')].map(el => el.value);
+  const colors = [...colorPickers.querySelectorAll("input[type=text]")].map(
+    (el) => el.value
+  );
 
-  if (shape === 'heart') {
+  if (shape === "heart") {
     fillShapeWithStripes(ctx, heartPath, colors, 9, 120);
-  } else if (shape === 'star') {
+  } else if (shape === "star") {
     fillShapeWithStripes(ctx, starPath, colors, 2, 126);
-  } else if (shape === 'flag') {
+  } else if (shape === "flag") {
     fillShapeWithStripes(ctx, flagPath, colors, 18, 110);
-  } else if (shape === 'square') {
+  } else if (shape === "square") {
     fillShapeWithStripes(ctx, squarePath, colors, 0, 128);
-  } else if (shape === 'circle') {
+  } else if (shape === "circle") {
     fillShapeWithStripes(ctx, circlePath, colors, 0, 128);
-  } else if (shape === 'egg') {
+  } else if (shape === "egg") {
     fillShapeWithStripes(ctx, eggPath, colors, 0, 130);
   }
 }
 
 // UI setup
-shapeSelector.addEventListener('change', updateCanvas);
-colorPickers.addEventListener('input', updateCanvas);
+shapeSelector.addEventListener("change", updateCanvas);
+colorPickers.addEventListener("input", updateCanvas);
 
-addStripe.addEventListener('click', () => {
+addStripe.addEventListener("click", () => {
   addColorInput();
   preset = null;
   updateCanvas();
 });
 
-downloadBtn.addEventListener('click', () => {
-  const link = document.createElement('a');
+downloadBtn.addEventListener("click", () => {
+  const link = document.createElement("a");
   const filename = `${preset ? preset + "_" : ""}${shapeSelector.value}.png`;
   link.download = filename;
   link.href = canvas.toDataURL();
@@ -130,26 +132,36 @@ downloadBtn.addEventListener('click', () => {
 });
 
 const presets = {
-  pride: ['#E50D00', '#FC8E03', '#FFEE00', '#22821B', '#024AFF', '#78118A'],
-  queer: ['#000000', '#9ad9ea', '#0da3e7', '#b5e51e', '#ffffff', '#ffca0e', '#fb6567', '#fbaec9', '#000000'],
-  gay: ['#218e71', '#99e8c3', '#ffffff', '#7baee3', '#3a1379'],
-  lesbian: ['#d62901', '#fc9b55', '#ffffff', '#d462a6', '#a50d62'],
-  bi: ['#D61370', '#D61370', '#9B4F96', '#0138A8', '#0138A8'],
-  pan: ['#f91c8e', '#ffd902', '#1bb3ff'],
-  ace: ['#000000', '#a4a4a4', '#FFFFFF', '#811081'],
-  aroace: ['#e38e00', '#edce00', '#FFFFFF', '#62afdd', '#1a3555'],
-  trans: ['#5ACFFA', '#F5ABBA', '#FFFFFF', '#F5ABBA', '#5ACFFA'],
-  genderqueer: ['#b77fdd', '#FFFFFF', '#48821d'],
-  nonbinary: ['#FFF530', '#FFFFFF', '#9D59D1', '#282828']
+  pride: ["#E50D00", "#FC8E03", "#FFEE00", "#22821B", "#024AFF", "#78118A"],
+  queer: [
+    "#000000",
+    "#9ad9ea",
+    "#0da3e7",
+    "#b5e51e",
+    "#ffffff",
+    "#ffca0e",
+    "#fb6567",
+    "#fbaec9",
+    "#000000",
+  ],
+  gay: ["#218e71", "#99e8c3", "#ffffff", "#7baee3", "#3a1379"],
+  lesbian: ["#d62901", "#fc9b55", "#ffffff", "#d462a6", "#a50d62"],
+  bi: ["#D61370", "#D61370", "#9B4F96", "#0138A8", "#0138A8"],
+  pan: ["#f91c8e", "#ffd902", "#1bb3ff"],
+  ace: ["#000000", "#a4a4a4", "#FFFFFF", "#811081"],
+  aroace: ["#e38e00", "#edce00", "#FFFFFF", "#62afdd", "#1a3555"],
+  trans: ["#5ACFFA", "#F5ABBA", "#FFFFFF", "#F5ABBA", "#5ACFFA"],
+  genderqueer: ["#b77fdd", "#FFFFFF", "#48821d"],
+  nonbinary: ["#FFF530", "#FFFFFF", "#9D59D1", "#282828"],
 };
 
-document.querySelectorAll('#presets button').forEach(btn => {
-  btn.addEventListener('click', () => {
+document.querySelectorAll("#presets button").forEach((btn) => {
+  btn.addEventListener("click", () => {
     const flag = btn.dataset.flag;
     const colors = presets[flag];
     preset = flag;
 
-    colorPickers.innerHTML = ''; // Clear existing
+    colorPickers.innerHTML = ""; // Clear existing
     colors.forEach((color) => {
       addColorInput(color);
     });
@@ -180,39 +192,39 @@ function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
   ctx.restore();
 }
 
-function addColorInput(color = '#ff0000') {
-  const colorList = document.getElementById('colorPickers');
+function addColorInput(color = "#ff0000") {
+  const colorList = document.getElementById("colorPickers");
 
-  const row = document.createElement('div');
-  row.className = 'color-row';
+  const row = document.createElement("div");
+  row.className = "color-row";
 
-  const colorInput = document.createElement('input');
-  colorInput.type = 'color';
+  const colorInput = document.createElement("input");
+  colorInput.type = "color";
   colorInput.value = color;
 
-  const textInput = document.createElement('input');
-  textInput.type = 'text';
+  const textInput = document.createElement("input");
+  textInput.type = "text";
   textInput.value = color;
   textInput.maxLength = 7;
 
   // Keep them in sync
-  colorInput.addEventListener('input', () => {
+  colorInput.addEventListener("input", () => {
     textInput.value = colorInput.value;
     render(); // update the canvas if needed
   });
 
-  textInput.addEventListener('input', () => {
+  textInput.addEventListener("input", () => {
     if (/^#[0-9a-fA-F]{6}$/.test(textInput.value)) {
       colorInput.value = textInput.value;
       render();
     }
   });
 
-  const removeBtn = document.createElement('button');
-  removeBtn.textContent = '✕';
-  removeBtn.style.border = 'none';
-  removeBtn.style.cursor = 'pointer';
-  removeBtn.addEventListener('click', () => {
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "✕";
+  removeBtn.style.border = "none";
+  removeBtn.style.cursor = "pointer";
+  removeBtn.addEventListener("click", () => {
     row.remove();
     updateCanvas();
   });
