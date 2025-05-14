@@ -62,6 +62,45 @@ function eggPath(ctx) {
   ctx.closePath();
 }
 
+function yesPath(ctx) {
+  const w = 28;
+  const w2 = 33;
+  const x1 = 0;
+  const y1 = 0;
+  const y2 = 70;
+  const y3 = 42;
+  ctx.beginPath();
+  ctx.moveTo(64 - w / 2, 128 - y1);
+  ctx.lineTo(64 + w / 2, 128 - y1);
+  ctx.lineTo(64 + w / 2, y2);
+  ctx.lineTo(128 - x1, y1);
+  ctx.lineTo(128 - x1 - w2, y1);
+  ctx.lineTo(64, y3);
+  ctx.lineTo(x1 + w2, y1);
+  ctx.lineTo(x1, y1);
+  ctx.lineTo(64 - w / 2, y2);
+  ctx.closePath();
+}
+
+function noPath(ctx) {
+  const x1 = 6;
+  const x2 = 36;
+  const y1 = 0;
+  const y2 = 48;
+  ctx.beginPath();
+  ctx.moveTo(x1, 128 - y1);
+  ctx.lineTo(x1, y1);
+  ctx.lineTo(x2, y1);
+  ctx.lineTo(128 - x2, 128 - y2);
+  ctx.lineTo(128 - x2, y1);
+  ctx.lineTo(128 - x1, y1);
+  ctx.lineTo(128 - x1, 128 - y1);
+  ctx.lineTo(128 - x2, 128 - y1);
+  ctx.lineTo(x2, y2);
+  ctx.lineTo(x2, 128 - y1);
+  ctx.closePath();
+}
+
 function starPath(ctx) {
   const cx = 64;
   const cy = 70;
@@ -110,6 +149,10 @@ function updateCanvas() {
     fillShapeWithStripes(ctx, circlePath, colors, 0, 128);
   } else if (shape === "egg") {
     fillShapeWithStripes(ctx, eggPath, colors, 0, 130);
+  } else if (shape === "yes") {
+    fillShapeWithStripes(ctx, yesPath, colors, 0, 128);
+  } else if (shape === "no") {
+    fillShapeWithStripes(ctx, noPath, colors, 0, 128);
   }
 }
 
