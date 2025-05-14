@@ -105,6 +105,10 @@ canvas {
   align-items: center;
 }
 
+canvas:hover {
+  background: transparent;
+}
+
 button {
   background-color: var(--var-button-bg-color);
   color: var(--var-button-fg-color);
