@@ -1,14 +1,21 @@
+:root {
+  color-scheme: light dark;
+  --var-button-bg-color: light-dark(#4361ee, #8c3e91);
+  --var-button-fg-color: light-dark(white, white);
+}
+
 body {
   font-family: sans-serif;
-  background: #f0f4ff;
+  background: light-dark(#f0f4ff, #503870);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
 }
 
-h1, h2 {
-  color: #1d3557;
+h1,
+h2 {
+  color: light-dark(#1d3557, #e2caa8);
   margin-bottom: 1rem;
 }
 
@@ -20,10 +27,10 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background: white;
+  background: light-dark(white, black);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px light-dark(rgba(0, 0, 0, 0.1), rgba(1, 1, 1, 0.3));
   max-width: 450px;
 }
 
@@ -42,7 +49,7 @@ h2 {
 
 .controls label {
   font-weight: bold;
-  color: #333;
+  color: light-dark(#333, #ccc);
 }
 
 .controls input[type="color"],
@@ -50,7 +57,7 @@ h2 {
 .controls select {
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid light-dark(#ccc, #222);
   font-size: 1rem;
 }
 
@@ -76,7 +83,7 @@ h2 {
   width: 80px;
   text-transform: uppercase;
   font-family: monospace;
-  color: #666;
+  color: light-dark(#666, #999);
 }
 
 #previewContainer {
@@ -90,16 +97,17 @@ canvas {
   position: relative;
   width: 128px;
   height: 128px;
-  background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px 16px;
-  border: 1px solid #e8e8e8;
+  background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px
+    16px;
+  border: 1px solid light-dark(#e8e8e8, #171717);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 button {
-  background-color: #4361ee;
-  color: white;
+  background-color: var(--var-button-bg-color);
+  color: var(--var-button-fg-color);
   font-weight: bold;
   padding: 0.5rem;
   border: none;
@@ -119,13 +127,13 @@ button#downloadBtn {
 }
 
 #presets button {
-  background-color: #FFF;
-  color: #1d3557;
-  border: 1px solid #1d3557;
+  background-color: light-dark(#fff, #000);
+  color: light-dark(#1d3557, #e2caa8);
+  border: 1px solid light-dark(#1d3557, #e2caa8);
   margin: 5px 0;
 }
 
 #presets button:hover {
-  background-color: #1d3557;
-  color: #FFF;
+  background-color: light-dark(#1d3557, #e2caa8);
+  color: light-dark(#fff, #000);
 }
