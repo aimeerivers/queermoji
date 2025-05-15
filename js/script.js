@@ -26,7 +26,7 @@ function heartPath(ctx) {
   ctx.closePath();
 }
 
-function flagPath(ctx) {
+function rectanglePath(ctx) {
   ctx.beginPath();
   ctx.moveTo(0, 18);
   ctx.lineTo(128, 18);
@@ -186,9 +186,9 @@ function updateCanvas() {
   } else if (shape === "star") {
     fillShapeWithStripes(ctx, starPath, colors, 2, 126);
   } else if (shape === "flag") {
-    fillShapeWithStripes(ctx, flagPath, colors, 18, 110);
-  } else if (shape === "waving-flag") {
     drawWavingFlag(ctx, colors);
+  } else if (shape === "rectangle") {
+    fillShapeWithStripes(ctx, rectanglePath, colors, 18, 110);
   } else if (shape === "square") {
     fillShapeWithStripes(ctx, squarePath, colors, 0, 128);
   } else if (shape === "circle") {
