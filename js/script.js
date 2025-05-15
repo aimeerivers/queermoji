@@ -36,6 +36,50 @@ function flagPath(ctx) {
   ctx.closePath();
 }
 
+function drawWavingFlag(ctx, colors) {
+  const y1 = 18;
+  const curveY = 10;
+  const curveX = 20;
+
+  const w = (128 - 2 * y1) / colors.length;
+
+  colors.forEach((color, index) => {
+    const y = y1 + w * index;
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.bezierCurveTo(curveX, y - curveY, 64 - curveX, y - curveY, 64, y);
+    ctx.bezierCurveTo(
+      64 + curveX,
+      y + curveY,
+      128 - curveX,
+      y + curveY,
+      128,
+      y
+    );
+
+    ctx.lineTo(128, 128 - y1);
+    ctx.bezierCurveTo(
+      128 - curveX,
+      128 - y1 + curveY,
+      64 + curveX,
+      128 - y1 + curveY,
+      64,
+      128 - y1
+    );
+    ctx.bezierCurveTo(
+      64 - curveX,
+      128 - y1 - curveY,
+      curveX,
+      128 - y1 - curveY,
+      0,
+      128 - y1
+    );
+    ctx.closePath();
+    ctx.fillStyle = colors[index];
+    ctx.fill();
+  });
+}
+
 function squarePath(ctx) {
   ctx.beginPath();
   ctx.moveTo(0, 0);
@@ -143,6 +187,8 @@ function updateCanvas() {
     fillShapeWithStripes(ctx, starPath, colors, 2, 126);
   } else if (shape === "flag") {
     fillShapeWithStripes(ctx, flagPath, colors, 18, 110);
+  } else if (shape === "waving-flag") {
+    drawWavingFlag(ctx, colors);
   } else if (shape === "square") {
     fillShapeWithStripes(ctx, squarePath, colors, 0, 128);
   } else if (shape === "circle") {
