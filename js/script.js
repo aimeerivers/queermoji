@@ -99,9 +99,9 @@ function circlePath(ctx) {
 function eggPath(ctx) {
   ctx.beginPath();
   ctx.moveTo(64, 0);
-  ctx.bezierCurveTo(40, 0, 18, 30, 16, 80);
-  ctx.bezierCurveTo(16, 100, 32, 128, 64, 128);
-  ctx.bezierCurveTo(96, 128, 112, 100, 112, 80);
+  ctx.bezierCurveTo(40, 0, 18, 30, 18, 84);
+  ctx.bezierCurveTo(20, 110, 32, 128, 64, 128);
+  ctx.bezierCurveTo(96, 128, 108, 110, 110, 84);
   ctx.bezierCurveTo(110, 30, 88, 0, 64, 0);
   ctx.closePath();
 }
