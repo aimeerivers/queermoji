@@ -1,0 +1,31 @@
+{
+  "name": "queermoji",
+  "version": "0.0.0",
+  "description": "Discord/Slack emoji generator",
+  "keywords": [
+    "pride"
+  ],
+  "homepage": "https://github.com/aimeerivers/queermoji#readme",
+  "bugs": {
+    "url": "https://github.com/aimeerivers/queermoji/issues"
+  },
+  "license": "ISC",
+  "author": "aimee rivers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimeerivers/queermoji.git"
+  },
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --fix",
+    "lint:check": "eslint",
+    "package:lint": "npx npm-package-json-lint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint-config-plus-prettier": "4.1.9"
+  },
+  "prettier": "eslint-config-plus-prettier/prettier"
+}

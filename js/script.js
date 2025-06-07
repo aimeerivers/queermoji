@@ -7,15 +7,6 @@ const addStripe = document.getElementById("addStripe");
 
 let preset = null;
 
-// Utility: make vertical gradient
-function makeVerticalGradient(ctx, colors) {
-  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  colors.forEach((c, i) => {
-    gradient.addColorStop(i / (colors.length - 1), c);
-  });
-  return gradient;
-}
-
 function heartPath(ctx) {
   ctx.beginPath();
   ctx.moveTo(64, 25);
@@ -48,32 +39,11 @@ function drawWavingFlag(ctx, colors) {
     ctx.beginPath();
     ctx.moveTo(0, y);
     ctx.bezierCurveTo(curveX, y - curveY, 64 - curveX, y - curveY, 64, y);
-    ctx.bezierCurveTo(
-      64 + curveX,
-      y + curveY,
-      128 - curveX,
-      y + curveY,
-      128,
-      y
-    );
+    ctx.bezierCurveTo(64 + curveX, y + curveY, 128 - curveX, y + curveY, 128, y);
 
     ctx.lineTo(128, 128 - y1);
-    ctx.bezierCurveTo(
-      128 - curveX,
-      128 - y1 + curveY,
-      64 + curveX,
-      128 - y1 + curveY,
-      64,
-      128 - y1
-    );
-    ctx.bezierCurveTo(
-      64 - curveX,
-      128 - y1 - curveY,
-      curveX,
-      128 - y1 - curveY,
-      0,
-      128 - y1
-    );
+    ctx.bezierCurveTo(128 - curveX, 128 - y1 + curveY, 64 + curveX, 128 - y1 + curveY, 64, 128 - y1);
+    ctx.bezierCurveTo(64 - curveX, 128 - y1 - curveY, curveX, 128 - y1 - curveY, 0, 128 - y1);
     ctx.closePath();
     ctx.fillStyle = colors[index];
     ctx.fill();
@@ -177,9 +147,7 @@ function updateCanvas() {
   // ctx.imageSmoothingEnabled = true;
 
   const shape = shapeSelector.value;
-  const colors = [...colorPickers.querySelectorAll("input[type=text]")].map(
-    (el) => el.value
-  );
+  const colors = [...colorPickers.querySelectorAll("input[type=text]")].map((el) => el.value);
 
   if (shape === "heart") {
     fillShapeWithStripes(ctx, heartPath, colors, 9, 120);
@@ -222,17 +190,7 @@ downloadBtn.addEventListener("click", () => {
 
 const presets = {
   pride: ["#E50D00", "#FC8E03", "#FFEE00", "#22821B", "#024AFF", "#78118A"],
-  queer: [
-    "#000000",
-    "#9ad9ea",
-    "#0da3e7",
-    "#b5e51e",
-    "#ffffff",
-    "#ffca0e",
-    "#fb6567",
-    "#fbaec9",
-    "#000000",
-  ],
+  queer: ["#000000", "#9ad9ea", "#0da3e7", "#b5e51e", "#ffffff", "#ffca0e", "#fb6567", "#fbaec9", "#000000"],
   gay: ["#218e71", "#99e8c3", "#ffffff", "#7baee3", "#3a1379"],
   lesbian: ["#d62901", "#fc9b55", "#ffffff", "#d462a6", "#a50d62"],
   bi: ["#D61370", "#D61370", "#9B4F96", "#0138A8", "#0138A8"],

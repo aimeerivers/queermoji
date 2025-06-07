@@ -97,8 +97,7 @@ canvas {
   position: relative;
   width: 128px;
   height: 128px;
-  background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px
-    16px;
+  background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px 16px;
   border: 1px solid light-dark(#e8e8e8, #171717);
   display: flex;
   justify-content: center;
