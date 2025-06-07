@@ -1,0 +1,21 @@
+{
+  "name": "queermoji",
+  "version": "0.0.0",
+  "description": "Discord/Slack emoji generator",
+  "keywords": [
+    "pride"
+  ],
+  "homepage": "https://github.com/aimeerivers/queermoji#readme",
+  "bugs": {
+    "url": "https://github.com/aimeerivers/queermoji/issues"
+  },
+  "license": "ISC",
+  "author": "aimee rivers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimeerivers/queermoji.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
