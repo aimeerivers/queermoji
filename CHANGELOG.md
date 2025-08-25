@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/aimeerivers/queermoji/compare/v1.0.2...v1.0.3) (2025-08-25)
+
+
+### Chores
+
+* Update dependencies ([#14](https://github.com/aimeerivers/queermoji/issues/14)) ([babdef8](https://github.com/aimeerivers/queermoji/commit/babdef899c68d3e4d0f01129f76043b79423e207))
+
 ## [1.0.2](https://github.com/aimeerivers/queermoji/compare/v1.0.1...v1.0.2) (2025-07-20)
 
 
