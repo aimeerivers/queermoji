@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/aimeerivers/queermoji/compare/v1.0.3...v1.0.4) (2025-09-18)
+
+
+### Continuous Integration
+
+* Update Release Please to v4 ([#16](https://github.com/aimeerivers/queermoji/issues/16)) ([b58c7d4](https://github.com/aimeerivers/queermoji/commit/b58c7d4971d8d3b8e99f659ffc14019f21f9b2cb))
+
 ## [1.0.3](https://github.com/aimeerivers/queermoji/compare/v1.0.2...v1.0.3) (2025-08-25)
 
 
