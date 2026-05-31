@@ -1,3 +1,15 @@
+/* Override dark theme with queermoji's purple palette */
+[data-theme="dark"] {
+  --klods-color-bg: #3d1c5e;
+  --klods-color-fg: #f0e6ff;
+  --klods-color-muted: #b89fd4;
+  --klods-color-surface: #1a0a2e;
+  --klods-color-surface-2: #120820;
+  --klods-color-border: #5a3080;
+  --klods-color-accent: #c45fa8;
+  --klods-color-accent-fg: #ffffff;
+}
+
 /* Two-column layout: controls on the left, preview on the right */
 .app-row {
   display: flex;
