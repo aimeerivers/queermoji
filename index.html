@@ -10,67 +10,66 @@
 
   <body>
     <div class="klods-page">
-      <header class="klods-header">
-        <nav class="klods-nav">
-          <strong>Queermoji</strong>
-          <span class="klods-muted">Discord/Slack emoji generator</span>
-        </nav>
-      </header>
-
-      <main class="klods-content klods-content--narrow">
-        <div class="klods-card">
-          <div class="app-row">
-            <div class="klods-form app-controls">
-              <div class="klods-field">
-                <label class="klods-label" for="shapeSelector">Shape</label>
-                <div class="klods-select-wrapper">
-                  <select id="shapeSelector" class="klods-select">
-                    <option value="heart">Heart</option>
-                    <option value="star">Star</option>
-                    <option value="flag">Flag</option>
-                    <option value="rectangle">Rectangle</option>
-                    <option value="square">Square</option>
-                    <option value="circle">Circle</option>
-                    <option value="egg">Egg</option>
-                    <option value="yes">Y</option>
-                    <option value="no">N</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="klods-field">
-                <span class="klods-label">Stripes</span>
-                <div id="colorPickers"></div>
-              </div>
-
-              <button id="addStripe" class="klods-button" type="button">Add Stripe</button>
-            </div>
-
-            <div class="app-preview">
-              <div id="previewContainer">
-                <canvas id="previewCanvas" width="128" height="128"></canvas>
-              </div>
-              <button id="downloadBtn" class="klods-button klods-button--primary" type="button" style="width: 100%">
-                Download
-              </button>
-            </div>
+      <main class="klods-content klods-content--narrow klods-center">
+        <div class="klods-stack klods-stack--gap-2">
+          <div class="klods-text-center">
+            <h1>Queermoji</h1>
+            <p class="klods-lead">Discord/Slack emoji generator</p>
           </div>
+          <div class="klods-card">
+            <div class="app-row">
+              <div class="klods-form app-controls">
+                <div class="klods-field">
+                  <label class="klods-label" for="shapeSelector">Shape</label>
+                  <div class="klods-select-wrapper">
+                    <select id="shapeSelector" class="klods-select">
+                      <option value="heart">Heart</option>
+                      <option value="star">Star</option>
+                      <option value="flag">Flag</option>
+                      <option value="rectangle">Rectangle</option>
+                      <option value="square">Square</option>
+                      <option value="circle">Circle</option>
+                      <option value="egg">Egg</option>
+                      <option value="yes">Y</option>
+                      <option value="no">N</option>
+                    </select>
+                  </div>
+                </div>
 
-          <div>
-            <p class="klods-label">Preset styles</p>
-            <div id="presets" class="app-presets">
-              <button class="klods-button" type="button" data-flag="pride">Pride</button>
-              <button class="klods-button" type="button" data-flag="queer">Queer</button>
-              <button class="klods-button" type="button" data-flag="gay">Gay</button>
-              <button class="klods-button" type="button" data-flag="lesbian">Lesbian</button>
-              <button class="klods-button" type="button" data-flag="bi">Bi</button>
-              <button class="klods-button" type="button" data-flag="pan">Pan</button>
-              <button class="klods-button" type="button" data-flag="ace">Ace</button>
-              <button class="klods-button" type="button" data-flag="ace2026">Ace2026</button>
-              <button class="klods-button" type="button" data-flag="aroace">Aroace</button>
-              <button class="klods-button" type="button" data-flag="trans">Trans</button>
-              <button class="klods-button" type="button" data-flag="genderqueer">Genderqueer</button>
-              <button class="klods-button" type="button" data-flag="nonbinary">Non-binary</button>
+                <div class="klods-field">
+                  <span class="klods-label">Stripes</span>
+                  <div id="colorPickers"></div>
+                </div>
+
+                <button id="addStripe" class="klods-button" type="button">Add Stripe</button>
+              </div>
+
+              <div class="app-preview">
+                <div id="previewContainer">
+                  <canvas id="previewCanvas" width="128" height="128"></canvas>
+                </div>
+                <button id="downloadBtn" class="klods-button klods-button--primary" type="button" style="width: 100%">
+                  Download
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <p class="klods-label">Preset styles</p>
+              <div id="presets" class="app-presets klods-cluster klods-cluster--gap-2">
+                <button class="klods-button" type="button" data-flag="pride">Pride</button>
+                <button class="klods-button" type="button" data-flag="queer">Queer</button>
+                <button class="klods-button" type="button" data-flag="gay">Gay</button>
+                <button class="klods-button" type="button" data-flag="lesbian">Lesbian</button>
+                <button class="klods-button" type="button" data-flag="bi">Bi</button>
+                <button class="klods-button" type="button" data-flag="pan">Pan</button>
+                <button class="klods-button" type="button" data-flag="ace">Ace</button>
+                <button class="klods-button" type="button" data-flag="ace2026">Ace2026</button>
+                <button class="klods-button" type="button" data-flag="aroace">Aroace</button>
+                <button class="klods-button" type="button" data-flag="trans">Trans</button>
+                <button class="klods-button" type="button" data-flag="genderqueer">Genderqueer</button>
+                <button class="klods-button" type="button" data-flag="nonbinary">Non-binary</button>
+              </div>
             </div>
           </div>
         </div>
