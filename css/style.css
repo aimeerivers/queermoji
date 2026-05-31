@@ -56,10 +56,3 @@ canvas {
 canvas:hover {
   background: transparent;
 }
-
-/* Preset buttons — flex-wrap grid below the divider */
-.app-presets {
-  padding-top: var(--klods-space-4);
-  border-top: 1px solid var(--klods-color-border);
-  margin-top: var(--klods-space-2);
-}
