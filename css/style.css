@@ -14,7 +14,7 @@
 /* Two-column layout: controls on the left, preview on the right */
 .app-row {
   display: flex;
-  gap: var(--klods-space-5);
+  gap: var(--klods-space-6);
   align-items: flex-start;
 }
 
