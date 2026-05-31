@@ -254,24 +254,25 @@ function addColorInput(color = "#ff0000") {
   textInput.type = "text";
   textInput.value = color;
   textInput.maxLength = 7;
+  textInput.className = "klods-input klods-input--sm";
 
   // Keep them in sync
   colorInput.addEventListener("input", () => {
     textInput.value = colorInput.value;
-    render(); // update the canvas if needed
+    updateCanvas();
   });
 
   textInput.addEventListener("input", () => {
     if (/^#[0-9a-fA-F]{6}$/.test(textInput.value)) {
       colorInput.value = textInput.value;
-      render();
+      updateCanvas();
     }
   });
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "✕";
-  removeBtn.style.border = "none";
-  removeBtn.style.cursor = "pointer";
+  removeBtn.type = "button";
+  removeBtn.className = "klods-button klods-button--ghost";
   removeBtn.addEventListener("click", () => {
     row.remove();
     updateCanvas();

@@ -1,142 +1,71 @@
-:root {
-  color-scheme: light dark;
-  --var-button-bg-color: light-dark(#4361ee, #8c3e91);
-  --var-button-fg-color: light-dark(white, white);
+/* Override dark theme with queermoji's purple palette */
+[data-theme="dark"] {
+  --klods-color-bg: #3d1c5e;
+  --klods-color-fg: #f0e6ff;
+  --klods-color-muted: #b89fd4;
+  --klods-color-surface: #1a0a2e;
+  --klods-color-surface-2: #120820;
+  --klods-color-border: #5a3080;
+  --klods-color-accent: #c45fa8;
+  --klods-color-accent-fg: #ffffff;
+  --klods-content-narrow: 35em;
 }
 
-body {
-  font-family: sans-serif;
-  background: light-dark(#f0f4ff, #503870);
+/* Two-column layout: controls on the left, preview on the right */
+.app-row {
+  display: flex;
+  gap: var(--klods-space-6);
+  align-items: flex-start;
+}
+
+.app-controls {
+  flex: 1 1 auto;
+}
+
+.app-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  gap: var(--klods-space-3);
 }
 
-h1,
-h2 {
-  color: light-dark(#1d3557, #e2caa8);
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 1.2rem;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background: light-dark(white, black);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 0 15px light-dark(rgba(0, 0, 0, 0.1), rgba(1, 1, 1, 0.3));
-  max-width: 450px;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 220px;
-}
-
-.controls label {
-  font-weight: bold;
-  color: light-dark(#333, #ccc);
-}
-
-.controls input[type="color"],
-.controls input[type="text"],
-.controls select {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid light-dark(#ccc, #222);
-  font-size: 1rem;
-}
-
-#colorPickers {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
+/* Color picker rows (created dynamically by JS) */
 .color-row {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--klods-space-2);
   align-items: center;
 }
 
 .color-row input[type="color"] {
-  padding: 0;
   width: 2rem;
   height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: auto;
+  cursor: pointer;
 }
 
-.color-row input[type="text"] {
+/* Constrain the hex text input — overrides klods-input width: 100% */
+.color-row .klods-input {
   width: 80px;
+  font-family: var(--klods-font-mono);
   text-transform: uppercase;
-  font-family: monospace;
-  color: light-dark(#666, #999);
 }
 
+/* Canvas checkered background shows transparency; hover removes it */
 #previewContainer {
-  padding: 0.8rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  margin: 1rem;
+  padding: var(--klods-space-3);
+  border: 1px solid var(--klods-color-border);
+  border-radius: var(--klods-radius-sm);
 }
 
 canvas {
-  position: relative;
-  width: 128px;
-  height: 128px;
+  display: block;
   background: repeating-conic-gradient(#fff 0% 25%, #e8e8e8 0% 50%) 50% / 16px 16px;
-  border: 1px solid light-dark(#e8e8e8, #171717);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid var(--klods-color-border);
 }
 
 canvas:hover {
   background: transparent;
-}
-
-button {
-  background-color: var(--var-button-bg-color);
-  color: var(--var-button-fg-color);
-  font-weight: bold;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-button#downloadBtn {
-  width: 100%;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-#presets {
-  width: 100%;
-  border-top: 1px solid #ccc;
-}
-
-#presets button {
-  background-color: light-dark(#fff, #000);
-  color: light-dark(#1d3557, #e2caa8);
-  border: 1px solid light-dark(#1d3557, #e2caa8);
-  margin: 5px 0;
-}
-
-#presets button:hover {
-  background-color: light-dark(#1d3557, #e2caa8);
-  color: light-dark(#fff, #000);
 }
