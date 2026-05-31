@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/druewilding/queermoji/compare/v1.2.0...v1.3.0) (2026-05-31)
+
+
+### Features
+
+* Rebuild using klods-css ([#40](https://github.com/druewilding/queermoji/issues/40)) ([f43d9ab](https://github.com/druewilding/queermoji/commit/f43d9ab16c316c7eff1dda3c26cbb3e1d81467f2))
+
 ## [1.2.0](https://github.com/druewilding/queermoji/compare/v1.1.3...v1.2.0) (2026-05-29)
 
 
