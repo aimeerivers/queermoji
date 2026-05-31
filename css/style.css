@@ -8,6 +8,7 @@
   --klods-color-border: #5a3080;
   --klods-color-accent: #c45fa8;
   --klods-color-accent-fg: #ffffff;
+  --klods-content-narrow: 35em;
 }
 
 /* Two-column layout: controls on the left, preview on the right */
