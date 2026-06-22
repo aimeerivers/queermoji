@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/druewilding/queermoji/compare/v1.3.0...v1.3.1) (2026-06-22)
+
+
+### Chores
+
+* Update eslint-config-plus-prettier to 4.2.16 ([#42](https://github.com/druewilding/queermoji/issues/42)) ([9f4bd5a](https://github.com/druewilding/queermoji/commit/9f4bd5ae4cf672c1c6699310122a6eddabc170b1))
+
 ## [1.3.0](https://github.com/druewilding/queermoji/compare/v1.2.0...v1.3.0) (2026-05-31)
 
 
