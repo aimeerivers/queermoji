@@ -201,6 +201,23 @@ const presets = {
   trans: ["#5ACFFA", "#F5ABBA", "#FFFFFF", "#F5ABBA", "#5ACFFA"],
   genderqueer: ["#b77fdd", "#FFFFFF", "#48821d"],
   nonbinary: ["#FFF530", "#FFFFFF", "#9D59D1", "#282828"],
+  elsegender: [
+    "#000000",
+    "#000000",
+    "#7E45AB",
+    "#7E45AB",
+    "#000000",
+    "#47B794",
+    "#47B794",
+    "#000000",
+    "#E9E372",
+    "#E9E372",
+    "#000000",
+    "#FFFFFF",
+    "#FFFFFF",
+    "#000000",
+    "#000000",
+  ],
 };
 
 document.querySelectorAll("#presets button").forEach((btn) => {
@@ -221,8 +238,6 @@ document.querySelectorAll("#presets button").forEach((btn) => {
 function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
   const height = yEnd - yStart;
   const stripeCount = colors.length;
-  const baseHeight = Math.floor(height / stripeCount);
-  const remainder = height - baseHeight * stripeCount; // leftover pixels
 
   ctx.save();
   ctx.beginPath();
@@ -231,10 +246,12 @@ function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
 
   let currentY = yStart;
   colors.forEach((color, i) => {
-    const stripeHeight = baseHeight + (i === stripeCount - 1 ? remainder : 0);
+    // Round each boundary so leftover pixels spread across stripes instead of piling onto the last one
+    const nextY = yStart + Math.round((height * (i + 1)) / stripeCount);
+    const stripeHeight = nextY - currentY;
     ctx.fillStyle = color;
     ctx.fillRect(0, currentY, canvas.width, stripeHeight + 1); // slight overlap
-    currentY += stripeHeight;
+    currentY = nextY;
   });
 
   ctx.restore();
