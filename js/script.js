@@ -201,6 +201,25 @@ const presets = {
   trans: ["#5ACFFA", "#F5ABBA", "#FFFFFF", "#F5ABBA", "#5ACFFA"],
   genderqueer: ["#b77fdd", "#FFFFFF", "#48821d"],
   nonbinary: ["#FFF530", "#FFFFFF", "#9D59D1", "#282828"],
+  elsegender: [
+    "#000000",
+    "#7E45AB",
+    "#7E45AB",
+    "#7E45AB",
+    "#000000",
+    "#47B794",
+    "#47B794",
+    "#47B794",
+    "#000000",
+    "#E9E372",
+    "#E9E372",
+    "#E9E372",
+    "#000000",
+    "#FFFFFF",
+    "#FFFFFF",
+    "#FFFFFF",
+    "#000000",
+  ],
 };
 
 document.querySelectorAll("#presets button").forEach((btn) => {
