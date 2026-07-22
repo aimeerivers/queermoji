@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/druewilding/queermoji/compare/v1.3.2...v1.4.0) (2026-07-22)
+
+
+### Features
+
+* Add elsegender flag definition ([#46](https://github.com/druewilding/queermoji/issues/46)) ([c582a60](https://github.com/druewilding/queermoji/commit/c582a600e85f1f3306b9f5de380183ea2e255dea))
+
 ## [1.3.2](https://github.com/druewilding/queermoji/compare/v1.3.1...v1.3.2) (2026-07-20)
 
 
