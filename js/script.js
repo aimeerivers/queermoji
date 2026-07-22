@@ -240,8 +240,6 @@ document.querySelectorAll("#presets button").forEach((btn) => {
 function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
   const height = yEnd - yStart;
   const stripeCount = colors.length;
-  const baseHeight = Math.floor(height / stripeCount);
-  const remainder = height - baseHeight * stripeCount; // leftover pixels
 
   ctx.save();
   ctx.beginPath();
@@ -250,10 +248,12 @@ function fillShapeWithStripes(ctx, drawShape, colors, yStart = 20, yEnd = 100) {
 
   let currentY = yStart;
   colors.forEach((color, i) => {
-    const stripeHeight = baseHeight + (i === stripeCount - 1 ? remainder : 0);
+    // Round each boundary so leftover pixels spread across stripes instead of piling onto the last one
+    const nextY = yStart + Math.round((height * (i + 1)) / stripeCount);
+    const stripeHeight = nextY - currentY;
     ctx.fillStyle = color;
     ctx.fillRect(0, currentY, canvas.width, stripeHeight + 1); // slight overlap
-    currentY += stripeHeight;
+    currentY = nextY;
   });
 
   ctx.restore();
