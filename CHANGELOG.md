@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/druewilding/queermoji/compare/v1.4.0...v1.5.0) (2026-07-22)
+
+
+### Features
+
+* Add Pride1978 preset (thank you Gilbert Baker!) ([#48](https://github.com/druewilding/queermoji/issues/48)) ([19d07f3](https://github.com/druewilding/queermoji/commit/19d07f3690d2782153ca1ea29ab9a68e3ff9227f))
+* Rename Ace2026 to Uni Ace ([#49](https://github.com/druewilding/queermoji/issues/49)) ([77a6850](https://github.com/druewilding/queermoji/commit/77a6850dd32b7611808ad48cdc7d434e108128ba))
+
+
+### Bug Fixes
+
+* Call it OG Pride ([#52](https://github.com/druewilding/queermoji/issues/52)) ([f689856](https://github.com/druewilding/queermoji/commit/f68985602d8a0fa9b832ea36676077740ac6d131))
+
 ## [1.4.0](https://github.com/druewilding/queermoji/compare/v1.3.2...v1.4.0) (2026-07-22)
 
 
