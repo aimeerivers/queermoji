@@ -197,7 +197,7 @@ const presets = {
   bi: ["#D61370", "#D61370", "#9B4F96", "#0138A8", "#0138A8"],
   pan: ["#f91c8e", "#ffd902", "#1bb3ff"],
   ace: ["#000000", "#a4a4a4", "#FFFFFF", "#811081"],
-  ace2026: ["#000000", "#B7B6B5", "#FFFEFF", "#F8CC21", "#EC52CA", "#904096"],
+  uniace: ["#000000", "#B7B6B5", "#FFFEFF", "#F8CC21", "#EC52CA", "#904096"],
   aroace: ["#e38e00", "#edce00", "#FFFFFF", "#62afdd", "#1a3555"],
   trans: ["#5ACFFA", "#F5ABBA", "#FFFFFF", "#F5ABBA", "#5ACFFA"],
   genderqueer: ["#b77fdd", "#FFFFFF", "#48821d"],
