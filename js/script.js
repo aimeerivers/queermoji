@@ -190,6 +190,7 @@ downloadBtn.addEventListener("click", () => {
 
 const presets = {
   pride: ["#E50D00", "#FC8E03", "#FFEE00", "#22821B", "#024AFF", "#78118A"],
+  pride1978: ["#FF69B4", "#FF0000", "#FF8E00", "#FFEE00", "#008E00", "#00C0C0", "#400098", "#8E008E"],
   queer: ["#000000", "#9ad9ea", "#0da3e7", "#b5e51e", "#ffffff", "#ffca0e", "#fb6567", "#fbaec9", "#000000"],
   gay: ["#218e71", "#99e8c3", "#ffffff", "#7baee3", "#3a1379"],
   lesbian: ["#d62901", "#fc9b55", "#ffffff", "#d462a6", "#a50d62"],
